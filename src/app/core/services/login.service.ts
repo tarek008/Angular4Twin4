@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import baseUrl from './Helpers';
@@ -18,8 +18,14 @@ export class LoginService {
 
 
   public generateToken(loginData: any) {
+    const headers = new HttpHeaders()
 
-    return this.http.post(`${baseUrl}/generate-token`, loginData);
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+
+    return this.http.post(`${baseUrl}/generate-token`, loginData, { "headers": headers });
   }
 
 
@@ -100,8 +106,13 @@ export class LoginService {
 
 
   public getCurrentUser() {
+    const headers = new HttpHeaders()
 
-    return this.http.get(`${baseUrl}/current-user`);
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get(`${baseUrl}/current-user`, { "headers": headers });
 
   }
 

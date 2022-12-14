@@ -6,13 +6,13 @@ export const environment = {
 
   production: true,
 
-  urlG: 'http://localhost:8089/SpringMVC',
-  url: 'http://localhost:8089/SpringMVC/controllerEtudiant/',
-  urlDep: 'http://localhost:8089/SpringMVC/DepartmentController/',
-  urlEns: 'http://localhost:8089/SpringMVC/EnseignantController/',
-  urlCont: 'http://localhost:8089/SpringMVC',
-  urldet: 'http://localhost:8089/SpringMVC/DetailEquipeController/',
-  url_u: 'http://localhost:8089/SpringMVC/UniversityController/'
+  urlG: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC',
+  url: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/controllerEtudiant/',
+  urlDep: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/DepartmentController/',
+  urlEns: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/EnseignantController/',
+  urlCont: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC',
+  urldet: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/DetailEquipeController/',
+  url_u: 'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/UniversityController/'
 
 };
 

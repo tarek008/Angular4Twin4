@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Equipe } from '../model/equipe';
 
 import { etudiants } from '../model/etudiants';
@@ -44,59 +44,166 @@ export class EquipeService {
 
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+  }
+
+
 
   getAllProduct() {
-    return this.http.get<Equipe[]>(this.urlAff)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+
+    return this.http.get<Equipe[]>(this.urlAff, { "headers": headers })
   }
   addEquipe(e: Equipe) {
-    return this.http.post(this.urlAdd, e)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.urlAdd, e, { "headers": headers })
   }
   getEquipeById(id: number) {
-    return this.http.get<Equipe>(this.urlGet + id)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<Equipe>(this.urlGet + id, { "headers": headers })
   }
   UpdateEquipe(e: Equipe) {
-    return this.http.put(this.urlUpd, e)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put(this.urlUpd, e, { "headers": headers })
   }
   DeleteEquipe(id: number) {
-    return this.http.delete(this.urlDel + id)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.delete(this.urlDel + id, { "headers": headers })
   }
   getStudEquipe(id: number) {
-    return this.http.get<etudiants[]>(this.urlStud + id)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<etudiants[]>(this.urlStud + id, { "headers": headers })
   }
   getAllStats() {
-    return this.http.get<stats[]>(this.urlStats)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<stats[]>(this.urlStats, { "headers": headers })
   }
   fav(id: number) {
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
     console.log(id
     );
-    return this.http.put(this.urlfav + id, null)
+    return this.http.put(this.urlfav + id, null, { "headers": headers })
   }
   unfav(id: number) {
-    return this.http.put(this.urlunfav + id, null)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put(this.urlunfav + id, null, { "headers": headers })
   }
   getAllfav() {
-    return this.http.get<Equipe[]>(this.urlmyfav)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<Equipe[]>(this.urlmyfav, { "headers": headers })
   }
   getAllStads() {
-    return this.http.get<stades[]>(this.urldispStad)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<stades[]>(this.urldispStad, { "headers": headers })
   }
   addStad(s: stades) {
-    return this.http.post(this.urlAddStad, s)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.post(this.urlAddStad, s, { "headers": headers })
   }
   getAllStud() {
-    return this.http.get<etudiants[]>(this.urlEtud)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<etudiants[]>(this.urlEtud, { "headers": headers })
   }
   affect(id: number, id2: number) {
-    return this.http.put(this.urlaffect + id + '/' + id2, null)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put(this.urlaffect + id + '/' + id2, null, { "headers": headers })
   }
   getSessionEquip(id: number) {
-    return this.http.get<Equipe[]>(this.urlsessionequi + id)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<Equipe[]>(this.urlsessionequi + id, { "headers": headers })
   }
   getfavv(id: number) {
-    return this.http.get<Equipe[]>(this.urlfavv + id)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<Equipe[]>(this.urlfavv + id, { "headers": headers })
   }
   newfav(id: number, id2: number) {
-    return this.http.put(this.myfav + id + '/' + id2, null)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put(this.myfav + id + '/' + id2, null, { "headers": headers })
   }
 }

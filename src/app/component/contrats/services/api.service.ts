@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
@@ -24,40 +24,82 @@ export class ApiService {
   public urlTwoDate = this.url + "getContratsBetween/";
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+
+
+  }
 
 
 
 
   postContrat(data: any) {
-    console.log(data)
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
     //return this.http.post<any>("http://localhost:3000/listContrats/", data)
-    return this.http.post<any>(this.urlAdd, data)
+    return this.http.post<any>(this.urlAdd, data, { "headers": headers })
 
   }
   getContrat() {
+
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+
+
     //return this.http.get<any>("http://localhost:3000/listContrats/")
-    return this.http.get<any>(this.urlAff);
+    return this.http.get<any>(this.urlAff, { "headers": headers });
   }
   //  updateContrat(data: any, id: number) {
   //return this.http.get<any>("http://localhost:3000/listContrats/")
   //  return this.http.put<any>(this.urlUpdate + id, data);
   //}
   updateContrat(data: any) {
-    return this.http.put<any>(this.urlUpdate, data);
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put<any>(this.urlUpdate, data, { "headers": headers });
   }
 
   DelContrat(id: number) {
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
     //return this.http.get<any>("http://localhost:3000/listContrats/")
-    return this.http.delete<any>(this.urlDel + id);
+    return this.http.delete<any>(this.urlDel + id, { "headers": headers });
   }
   AddContratToStudent(idC: number, idE: number) {
-    return this.http.put<any>(this.urlACTS + idC + '/' + idE, {});
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put<any>(this.urlACTS + idC + '/' + idE, {}, { "headers": headers });
 
   }
 
   getStudents() {
-    return this.http.get<Student[]>(this.urlAffStudent);
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.get<Student[]>(this.urlAffStudent, { "headers": headers });
   }
 
   exportPdfContrats(): Observable<Blob> {
@@ -68,19 +110,31 @@ export class ApiService {
   getStats(): Observable<Array<IArchivePercentType>> {
     return this.http
       .get<Array<IArchivePercentType>>(
-        'http://localhost:8089/SpringMVC/ContartController/vData/percentArchiveStatus'
+        'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/ContartController/vData/percentArchiveStatus'
       )
       .pipe(map((d: Array<IArchivePercentType>) => d));
   }
 
 
   Makereduction() {
-    return this.http.put<any>(this.urlReduction, []);
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+    return this.http.put<any>(this.urlReduction, [], { "headers": headers });
   }
 
   ContratBetweenTwoDate(DateDebut: String, DateFin: String) {
+    const headers = new HttpHeaders()
 
-    return this.http.get<Contrat[]>(this.urlTwoDate + DateDebut + "/" + DateFin);
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
+
+    return this.http.get<Contrat[]>(this.urlTwoDate + DateDebut + "/" + DateFin, { "headers": headers });
 
   }
 
