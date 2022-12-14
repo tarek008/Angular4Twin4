@@ -1,0 +1,17 @@
+<form class="form-group " [formGroup]="form" (ngSubmit)="submitcritere()">
+  <ul>
+    <li>
+      <mat-form-field>
+        <input matInput formControlName="name" name="name" placeholder="choose age " [(ngModel)]="critereage">
+        <div class="alert alert-danger" style="margin-top:5px" *ngIf="form.controls['name'].invalid">
+          <p *ngIf="form.controls['name'].hasError('required')">age is required</p>
+          <p *ngIf="form.controls['name'].hasError('name')">name invalid</p>
+        </div>
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button [routerLink]="['/etudiants/statistics',critereage]"> Get statistics </button>
+    </li>
+
+  </ul>
+</form>
