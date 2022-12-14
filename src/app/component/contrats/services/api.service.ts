@@ -108,11 +108,17 @@ export class ApiService {
 
   // ContratArchiveStats
   getStats(): Observable<Array<IArchivePercentType>> {
+    const headers = new HttpHeaders()
+
+      .set('content-type', 'application/json')
+      .set('ngrok-skip-browser-warning', '1231')
+
+      .set('Access-Control-Allow-Origin', '*');
     return this.http
       .get<Array<IArchivePercentType>>(
         'https://d992-197-25-231-103.eu.ngrok.io/SpringMVC/ContartController/vData/percentArchiveStatus'
       )
-      .pipe(map((d: Array<IArchivePercentType>) => d));
+      .pipe(map((d: Array<IArchivePercentType>) => d, { "headers": headers }));
   }
 
 
