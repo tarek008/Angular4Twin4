@@ -2,7 +2,7 @@ import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from '../../core/services/login.service';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-import { etudiants } from '../../../../../src/app/core/model/etudiants';
+import { etudiants } from '../../../../src/app/core/model/etudiants';
 
 declare var $: any;
 

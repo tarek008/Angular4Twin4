@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { etudiants } from '../../../../../src/app/core/model/etudiants';
+import { etudiants } from '../../../../src/app/core/model/etudiants';
 import { DepartmentEtudiantComponent } from './department-etudiant/department-etudiant.component';
 import { DetailEtudiantComponent } from './detail-etudiant/detail-etudiant.component';
 import { EtudiantContratComponent } from './etudiant-contrat/etudiant-contrat.component';
